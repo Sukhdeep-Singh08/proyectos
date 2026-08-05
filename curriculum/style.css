@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    --bg-color: #fff;
+    --second-color: #9E8C6C;
+    --third-color: #0699A6;
+    --important-color: #000;
+}
+
+body, h1, h2, h3, p, div, ul, li{
+    margin: 0;
+    padding: 0;
+}
+
+
+.profile--photo img{
+    width: 160px;
+}
