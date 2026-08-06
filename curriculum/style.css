@@ -118,12 +118,13 @@ body, h1, h2, h3, h4, p, div, ul, li, span{
     margin-bottom: 24px;
 }
 
-.experience--item h3, .aside_skills--item h3{
+.experience--item h3, .aside_skills--item h3, .education__info h3{
     font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 2px;
+    font-weight: bold;
+    letter-spacing: 1px;
     color: var(--second-color);
     font-family: var(--h3-font);
+    text-transform: uppercase;
 }
 
 .experience--item h3 {
@@ -134,11 +135,30 @@ body, h1, h2, h3, h4, p, div, ul, li, span{
     margin-top: 40px;
 }
 
-.experience--item h4 {
+.experience--item h4, .education__info h4, .aside_skills--item h4{
     font-family: var(--h3-font);
-    font-family: 18px;
+    font-size: 18px;
     font-weight: 400;
-    margin-top: 8px;
-    margin-bottom: 20px;
 }
 
+.experience--item h4{
+    margin-bottom: 20px;
+    margin-top: 8px;
+}
+
+.education__info h3{
+    margin-top: 20px;
+}
+
+.education__info h4{
+    margin-top: 8px;
+}
+
+.aside_skills--item{
+    margin-bottom: 60px;
+}
+
+.aside_skills--item h4{
+    margin-top: 10px;
+    line-height: 30px;
+}
