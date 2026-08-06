@@ -89,6 +89,7 @@ body, h1, h2, h3, h4, p, div, ul, li, span{
     margin:0 20px ;
 }
 
+
 .about__me h2, .experiencie__info h2, .education__info h2{
     font-size: 32px;
     font-weight: 900;
@@ -223,4 +224,14 @@ address p{
 address{
     margin-top: 40px;
     margin-bottom: 45.68px;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 768px) {
+
+    .profile__info {
+        margin: 0 144px;
+    }
+
 }
