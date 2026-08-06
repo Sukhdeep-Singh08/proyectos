@@ -83,11 +83,13 @@ body, h1, h2, h3, p, div, ul, li, span{
 
 /* PROFILE INFO ------------ */
 
+    /* ABOUT ME */
+
 .profile__info {
     margin:0 20px ;
 }
 
-.about__me h2 {
+.about__me h2, .experiencie__info h2, .education__info h2{
     font-size: 32px;
     font-weight: 900;
     font-family: var(--title-font);
@@ -101,4 +103,23 @@ body, h1, h2, h3, p, div, ul, li, span{
     color: var(--important-color);
     margin-top: 10px;
     margin-bottom: 40px;
+}
+
+.blue--line{
+    background-color: var(--third-color);
+    width: 54px;
+    height: 10px;
+    margin-bottom: 40px;
+}
+    /* EXPERIENCIE */
+
+.experience--item h3, .aside__skils--item h3{
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--second-color);
+}
+
+.experience--item h3 {
+    margin-bottom: 8px;
 }
