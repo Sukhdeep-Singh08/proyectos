@@ -21,23 +21,24 @@ body, h1, h2, h3, p, div, ul, li, span{
 
 /* MAIN SECTION -----------*/
 
-.profile__portfolio{
+.profile__portfolio {
     background-color: var(--second-soft-color);
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
+    margin-bottom: 40px;
 }
 
-.profile--photo img{
+.profile--photo img {
     width: 160px;
     border-radius: 50%;
     margin-top: 80px;
     margin-bottom: 30px;
 }
 
-.profile--contact{
+.profile--contact {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,14 +59,15 @@ body, h1, h2, h3, p, div, ul, li, span{
     font-size: 56px;
     margin-bottom: 40px;
     font-weight: 900;
+    color: var(--important-color);
 }
 
-.profile--contact_block{
+.profile--contact_block {
     display: block;
     line-height: 46px;
 }
 
-.profile--contact button{
+.profile--contact button {
     margin-bottom: 100px;
     color: var(--white-text);
     background-color: var(--third-color);
@@ -76,4 +78,27 @@ body, h1, h2, h3, p, div, ul, li, span{
     font-size: 18px;
     font-family: var(--h3-font);
     font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* PROFILE INFO ------------ */
+
+.profile__info {
+    margin:0 20px ;
+}
+
+.about__me h2 {
+    font-size: 32px;
+    font-weight: 900;
+    font-family: var(--title-font);
+}
+
+.about__me p {
+    font-size: 18px;
+    font-family: var(--h3-font);
+    font-weight: 400;
+    line-height: 30px;
+    color: var(--important-color);
+    margin-top: 10px;
+    margin-bottom: 40px;
 }
