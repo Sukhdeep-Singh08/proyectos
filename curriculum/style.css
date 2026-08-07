@@ -327,6 +327,7 @@ address{
 
     .profile__info{
         display: flex;
+        justify-content: center;
         gap: 125px;
         margin: 0 165px;
     }
@@ -335,7 +336,70 @@ address{
         order: 1;
     }
 
+    .about__me h2, .experiencie__info h2, .education__info h2{
+        font-size: 36px;
+        line-height: 46px;
+    }
+    
+    .blue--line{
+        margin: 80px 0px 66px 0px;
+    }
+
+    .experiencie__info h2 {
+        margin-bottom: 16px;
+    }
+
+    .experience--margin {
+        margin-top: 66px;
+    }
+
+    .experience--item h4, .education__info h4, .aside_skills--item h4, .experiencie__info h3{
+        margin: 0;
+    }
+
+    .experience--item p{
+        margin-top: 10px;
+    }
+
+    .education__info h2{
+        margin-bottom: 20px;
+    }
+
+    .education__info h3{
+        margin: 0;
+    }
+
+    .info-flex{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
     .aside_skills {
         width: 350px;
     }
+
+    .aside-skills{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .footer__page h2{
+        font-size: 66px;
+    }
+
+    address{
+        display: flex;
+    }
+
+    address p:first-child{
+        border-right: 4px solid var(--third-color);
+        padding-right: 10px;
+    }
+
+    address p:last-child{
+        padding-left: 10px;
+    }
+
 }
