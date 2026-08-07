@@ -29,7 +29,7 @@ body, h1, h2, h3, h4, p, div, ul, li, span{
     display: flex;
     flex-direction: column;
     align-items: center;
-    clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 93%, 0% 100%);
     margin-bottom: 40px;
 }
 
@@ -53,6 +53,7 @@ body, h1, h2, h3, h4, p, div, ul, li, span{
     font-weight: 700;
     font-family: var(--h3-font);
     margin-bottom: 14px;
+    font-size: 14px;
 }
 
 .profile--contact h1 { 
@@ -88,7 +89,6 @@ body, h1, h2, h3, h4, p, div, ul, li, span{
 .profile__info {
     margin:0 20px ;
 }
-
 
 .about__me h2, .experiencie__info h2, .education__info h2{
     font-size: 32px;
@@ -139,6 +139,7 @@ body, h1, h2, h3, h4, p, div, ul, li, span{
 .experience--item h4, .education__info h4, .aside_skills--item h4{
     font-family: var(--h3-font);
     font-size: 18px;
+    line-height: 24px;
 }
 
 .experience--item h4{
@@ -194,7 +195,7 @@ body, h1, h2, h3, h4, p, div, ul, li, span{
 
 .footer__page{
     width: 100%;
-    clip-path: polygon(0 8%, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 17%, 100% 0, 100% 100%, 0% 100%);
     background-color: var(--second-soft-color);
     display: flex;
     flex-direction: column;
@@ -230,8 +231,111 @@ address{
 
 @media screen and (min-width: 768px) {
 
+    .profile--photo img{
+        width: 200px;
+    }
+
+    .profile--contact p{
+        font-size: 18px;
+        margin-bottom: 14px;
+    }
+    
+    .profile--contact h1{
+        font-size: 86px;
+    }
+
+    .profile--contact_block {
+        line-height: 76px;
+        letter-spacing: -2.17px;
+    }
+
     .profile__info {
         margin: 0 144px;
     }
 
+    .about__me p, .experience--item p {
+        line-height: 34px;
+        font-size: 20px;
+    }
+
+    .about__me p {
+        margin-top: 20px;
+    }
+
+    .blue--line{
+        margin: 60px 0px 50px 0px;
+    }
+
+    .experiencie__info h2 {
+        margin-bottom: 26px;
+    }
+
+    .experience--margin {
+        margin-top: 60px;
+    }
+
+    .aside_skills--item h4{
+        font-size: 20px;
+    }
+
+    .aside_skills--item p{
+        font-size: 20px;
+    }
+
+    .footer__page h2{
+        font-size: 56px;
+    }
+
+    address p{
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .profile__portfolio{
+        flex-direction: row;
+        justify-content: center;
+        align-items: start;
+        padding-top: 180px;
+        padding-bottom: 217px;
+        clip-path: polygon(0 0, 100% 0, 100% 73%, 0% 90%);
+        gap: 125px;
+    }
+
+    .profile--photo {
+        height: 100%;
+    }
+
+    .profile--photo  img{
+        width: 350px;
+        margin: 0;
+    }
+
+    .profile--contact {
+        align-items: start;
+    }
+
+    .profile--contact h1{
+        text-align: start;
+        font-size: 126px;
+    }
+
+    .profile--contact_block {
+        line-height: 112px;
+        letter-spacing: -2.17px;
+    }
+
+    .profile__info{
+        display: flex;
+        gap: 125px;
+        margin: 0 165px;
+    }
+
+    .profile__principal__info {
+        order: 1;
+    }
+
+    .aside_skills {
+        width: 350px;
+    }
 }
