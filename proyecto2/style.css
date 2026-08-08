@@ -89,7 +89,8 @@ header {
     line-height: 48px;
     letter-spacing: -1.2%;
     /* color: var(--principal-color); */
-    width: clamp(311px, 100%, 672px);
+    min-width: 311px;
+    max-width: 672px;
     text-align: center;
 }
 
@@ -100,4 +101,29 @@ header {
     line-height: 28px;
     margin-top: 24px;
     width: clamp(311px, 100%, 672px);
+}
+
+.pandem__principal-start button{
+    background-color: var(--principal-color);
+    border: none;
+    width: 122px;
+    color: var(--bg-color);
+    border-radius: 16px;
+    font-size: var(--text-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-bottom: 32px;
+}
+
+.pandem__principal-image{
+    display: flex;
+    justify-content: center;
+    margin: 0 32px;
+    margin-bottom: 32px;
+}
+
+.pandem__principal-image img{
+    width: clamp(311px, 100%, 1024px);
 }
