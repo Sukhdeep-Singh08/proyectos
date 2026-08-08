@@ -17,3 +17,87 @@ body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
 }
+
+/* HEADER ------ */
+
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+    padding: 14px;
+    border-bottom: 1px solid var(--dark-border);
+}
+
+.header__logo{
+    display: flex;
+    color: var(--principal-color);
+    margin-right: 86px;
+    align-items: center;
+    gap: 12px;
+}
+
+.header__logo p{
+    font-size: var(--text-logo);
+}
+
+.header__account {
+    display: flex;
+    color: var(--secondary-color);
+    margin-right: 16px;
+    align-items: center;
+}
+
+.header__menu span{
+    color: var(--principal-color);
+}
+
+.header__account{
+    font-size: var(--text-size);
+    gap: 16px;
+}
+
+.header__account-signup {
+    display: flex;
+    align-items: center;
+    color: var(--bg-color);
+    background-color: var(--principal-color);
+    padding: 2px 8px;
+    border-radius: 6px;
+    height: 28px;
+    font-size: var(--text-size);
+}
+
+/* MAIN / DIV ---- */
+
+.pandem__principal-start, .pandem__principal-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 32px;
+}
+
+.pandem__principal-start div:first-child{
+    margin-top: 44px;
+    margin-bottom: 32px;
+}
+
+.pandem__principal-start div:first-child h1{
+    font-size: var(--h1-size);
+    font-weight: 800;
+    line-height: 48px;
+    letter-spacing: -1.2%;
+    /* color: var(--principal-color); */
+    width: clamp(311px, 100%, 672px);
+    text-align: center;
+}
+
+.pandem__principal-start div:first-child p{
+    color: var(--secondary-color);
+    text-align: center;
+    font-size: var(--text-size);
+    line-height: 28px;
+    margin-top: 24px;
+    width: clamp(311px, 100%, 672px);
+}
