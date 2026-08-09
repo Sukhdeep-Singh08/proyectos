@@ -4,6 +4,7 @@
 
 body{
     background-color: var(--bg-color);
+    font-family: inter;
     --bg-color: #000;
     --dark-border: #27272A;
     --principal-color: #FAFAFA;
@@ -27,9 +28,9 @@ header {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     background-color: var(--bg-color);
-    padding: 14px;
+    padding: 14px clamp(32px, 5vw, 112px);
     border-bottom: 1px solid var(--dark-border);
 }
 
@@ -43,6 +44,20 @@ header {
 
 .header__logo p{
     font-size: var(--text-logo);
+}
+
+.header__logo nav {
+    display: none;
+}
+
+.header__logo nav ul{
+    display: flex;
+    list-style: none;
+    gap: 32px;
+    font-size: var(--text-size);
+    color: var(--secondary-color);
+    padding: 0;
+    margin-left: 16px;
 }
 
 .header__account {
@@ -64,11 +79,12 @@ header {
 .header__account-signup {
     display: flex;
     align-items: center;
+    justify-content: center;
     color: var(--bg-color);
     background-color: var(--principal-color);
-    padding: 2px 8px;
     border-radius: 6px;
-    height: 28px;
+    height: 32px;
+    width: 69px;
     font-size: var(--text-size);
 }
 
@@ -116,8 +132,9 @@ header {
     background-color: var(--principal-color);
     border: none;
     width: 122px;
+    height: 32px;
     color: var(--bg-color);
-    border-radius: 16px;
+    border-radius: 6px;
     font-size: var(--text-size);
     display: flex;
     align-items: center;
@@ -134,7 +151,7 @@ header {
 }
 
 .pandem__principal-image img{
-    width: clamp(311px, 100%, 1024px);
+    width: clamp(211px, 100%, 1024px);
 }
 
 .pandem__principal-info {
@@ -147,6 +164,10 @@ header {
     margin-top: 32px; 
     margin-bottom: 48px;
     color: var(--principal-color);
+}
+
+.quick{
+    display: none;
 }
 
 .principal__avantatges {
@@ -183,6 +204,7 @@ header {
 
 .pandem__setup {
     margin: 96px 0;
+    width: clamp(311px, 100%, 672px);
 }
 
 .pandem__setup h2 {
@@ -209,7 +231,7 @@ header {
 }
 
 .pandem__setup-img img{
-    width: clamp(311px, 100%, 1024px);
+    width: clamp(211px, 100%, 672px);
 }
 
 .pandem__demo-start{
@@ -257,8 +279,9 @@ header {
 /* FOOTER ----- */
 
 footer {
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     color: var(--secondary-color);
 }
@@ -268,10 +291,76 @@ footer {
     align-items: center;
     color: var(--principal-color);
     gap: 12px;
+    padding-left: clamp(32px, 5vw, 112px);
 }
 
 .footer__contact-terms {
     display: flex;
     align-items: center;
     gap: 12px;
+    padding-right: clamp(0px, 5vw, 112px);
+}
+
+
+/* MEDIA QUERIES -------- */
+
+@media screen and (max-width:367px){
+ .header__logo {
+    display: none;
+ }
+
+}
+
+@media screen and (min-width:750px) {
+    /* HEADER--- */
+
+    .header__logo nav{
+        display: block;
+    }
+    
+    
+    .header__account-signup {
+        width: 85px;
+    }
+    
+    .header__menu {
+        display: none;
+    }
+
+    /* MAIN / DIV */
+
+    .hero-text p{
+        line-height: 18px;
+        font-size: var(--h5-size);
+    }
+
+    .pandem__h2 {
+        font-size: var(--h1-size);
+    }
+
+    #immediate{
+        display: none;
+    }
+
+    .quick{
+        display: inline;
+    }
+
+    .principal__avantatges {
+        flex-direction: row;
+        margin: 0 32px;
+    }
+
+    .principal_info-item {
+        max-width: 288px;
+        max-height: 220px;
+    }
+
+    .pandem__setup h2{
+        font-size: var(--h1-size);
+    }
+
+    .pandem__setup p{
+        font-size: var(--h5-size);
+    }
 }
