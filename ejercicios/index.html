@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><strong>Nivell 1 — Selectors i lectura</strong></p>
+    <p id="salut">Hola</p>
+    <span class="destacat">Text</span>
+    <input id="nom" type="text" value="Pep">
+    <select name="" id="ciutat">
+        <option value="Barcelona">Barcelona</option>
+        <option value="Girona">Girona</option>
+        <option value="Lleida">Lleida</option>
+        <option value="Tarragona">Tarragona</option>
+    </select>
+    <input type="checkbox" id="accepto">
+    <script>
+        // Level 1
+
+        let salut = document.querySelector("#salut")
+        console.log(salut.textContent)
+
+        let destacat = document.querySelector(".destacat")
+        console.log(destacat)
+
+        console.log(document.querySelector("#nom").value)
+    
+        let select = document.querySelector("#ciutat")
+        console.log(select.value)
+
+        console.log(document.querySelector("#accepto").checked)
+    </script>
+</body>
+</html>
