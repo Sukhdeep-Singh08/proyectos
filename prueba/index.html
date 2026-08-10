@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Formulari de Contacte</title>
+  </head>
+  <body>
+    <h1>Formulari de Contacte</h1>
+
+    <form action="/contacte" method="POST">
+      <fieldset>
+        <legend>Dades personals</legend>
+
+        <label for="nom">Nom: <span style="color: red;">*</span></label>
+        <input type="text" id="nom" name="nom" required placeholder="Introdueix el teu nom" />
+
+        <label for="cognoms">Cognoms: <span style="color: red;">*</span></label>
+        <input type="text" id="cognoms" name="cognoms" required placeholder="Introdueix els teus cognoms" />
+
+        <label for="email">Email: <span style="color: red;">*</span></label>
+        <input type="email" id="email" name="email" required placeholder="email@exemple.cat" />
+
+        <label for="telefon">Telèfon:</label>
+        <input type="tel" id="telefon" name="telefon" placeholder="123456789" />
+
+        <label for="data_naixement">Data de naixement:</label>
+        <input type="date" id="data_naixement" name="data_naixement" />
+      </fieldset>
+
+      <fieldset>
+        <legend>Informació addicional</legend>
+
+        <label for="pais">País:</label>
+        <select id="pais" name="pais">
+          <option value="">Selecciona un país</option>
+          <option value="es">Espanya</option>
+          <option value="fr">França</option>
+          <option value="it">Itàlia</option>
+          <option value="pt">Portugal</option>
+          <option value="de">Alemanya</option>
+        </select>
+
+        <p>Interessos (pots seleccionar-ne diversos):</p>
+
+        <input type="checkbox" id="esports" name="interessos" value="esports" />
+        <label for="esports">Esports</label>
+
+        <input type="checkbox" id="musica" name="interessos" value="musica" />
+        <label for="musica">Música</label>
+
+        <input type="checkbox" id="lectura" name="interessos" value="lectura" />
+        <label for="lectura">Lectura</label>
+
+        <input type="checkbox" id="cinema" name="interessos" value="cinema" />
+        <label for="cinema">Cinema</label>
+
+        <input type="checkbox" id="viatges" name="interessos" value="viatges" />
+        <label for="viatges">Viatges</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Missatge</legend>
+
+        <label for="missatge">Missatge: <span style="color: red;">*</span></label>
+        <textarea id="missatge" name="missatge" rows="6" cols="50" required placeholder="Escriu el teu missatge aquí..."></textarea>
+      </fieldset>
+
+      <button type="submit">Enviar formulari</button>
+      <button type="reset">Netejar camps</button>
+
+      <p><span style="color: red;">*</span> Camps obligatoris</p>
+    </form>
+  </body>
+</html>
