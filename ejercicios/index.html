@@ -8,7 +8,10 @@
         .vermell {
             color: red;
         }
-
+        .error { border: 2px solid red}
+        .amagat { 
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -40,43 +43,51 @@
     <button id="boto5">boto5</button>
     <button id="boto6">boto6</button>
     <button id="boto7">Alternar-color</button>
+    <input type="text" id="email">
+    <button id="valida">validar</button>
+    <div id="panell">Contingut</div>
+    <button id="amagar">Amagar</button>
+    <button id="mostrar">Mostrar</button>
     <script>
         // Level 1----------
+            // 1
         let salut = document.querySelector("#salut")
         console.log(salut.textContent)
-
+            // 2
         let destacat = document.querySelector(".destacat")
         console.log(destacat)
-
+            // 3
         console.log(document.querySelector("#nom").value)
-    
+            // 4
         let select = document.querySelector("#ciutat")
         console.log(select.value)
-
+            // 5
         console.log(document.querySelector("#accepto").checked)
 
-        // Level 2-----------
+        // Level 2-----------   
+            // 6
         document.querySelector("#boto1").addEventListener("click",function() {console.log("Clic Rebut!")})
-
+            // 7
         document.querySelector("#botop").addEventListener("click", function () {document.querySelector("#missatge").textContent ="Has fet clic!"})
-
+            // 8
         let zona = document.querySelector("#zona")
         document.querySelector("#boto3").addEventListener("click", () => {zona.innerHTML = "<strong>Contingut nou</strong>"})
-
+            // 9
         let entrada = document.querySelector("#entrada")
         let sortida = document.querySelector("#sortida")
         entrada.addEventListener("input", () => {sortida.textContent = entrada.value})
-
+            // 10
         let camp = document.querySelector("#camp")
         let boto4 = document.querySelector("#boto4") 
         boto4.addEventListener("click", () => {camp.value = "Text Introduït per JS"})
 
         // Level 3--------
+            // 11
         let paragraf = document.querySelector("#paragraf")
         document.querySelector("#boto5").addEventListener("click", () => {paragraf.classList.add("vermell")})
-
+            // 12
         document.querySelector("#boto6").addEventListener("click", () => {paragraf.classList.remove("vermell")})
-
+            // 13
         // document.querySelector("#boto7").addEventListener("click", () => {paragraf.classList.toggle("vermell")})
 
         function cambiar() {
@@ -88,6 +99,27 @@
         }
 
         document.querySelector("#boto7").addEventListener("click", cambiar)
+            // 14
+        let valida = document.querySelector("#valida")
+        let email = document.querySelector("#email")
+
+        function error() {
+            if (email.value.trim() === "") {
+                email.classList.add("error")
+            } else {
+                email.classList.remove("error")
+            }
+        }
+
+        valida.addEventListener("click",error)
+            // 15
+        let amagar = document.querySelector("#amagar")
+        let mostrar = document.querySelector("#mostrar")
+        let panell = document.querySelector("#panell")
+
+        amagar.addEventListener("click", () => {panell.classList.add("amagat")})
+
+        mostrar.addEventListener("click", () => {panell.classList.remove("amagat")} )
 
     </script>
 </body>
