@@ -22,6 +22,8 @@
     <button id="boto1">Boton</button>
     <p id="missatge">Experant clic...</p>
     <button id="botop">Boton2</button>
+    <div id="zona" style="background-color: yellow; width: 250px; height: 100px;"></div>
+    <button id="boto3">Boton3</button>
     <script>
         // Level 1
 
@@ -42,6 +44,9 @@
         document.querySelector("#boto1").addEventListener("click",function() {console.log("Clic Rebut!")})
 
         document.querySelector("#botop").addEventListener("click", function () {document.querySelector("#missatge").textContent ="Has fet clic!"})
+
+        let zona = document.querySelector("#zona")
+        document.querySelector("#boto3").addEventListener("click", () => {zona.innerHTML = "<strong>Contingut nou</strong>"})
     </script>
 </body>
 </html>
