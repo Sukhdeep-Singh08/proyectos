@@ -17,6 +17,11 @@
         <option value="Tarragona">Tarragona</option>
     </select>
     <input type="checkbox" id="accepto">
+
+    <p><strong>Nivell 2 — Listeners i canvis bàsics</strong></p>
+    <button id="boto1">Boton</button>
+    <p id="missatge">Experant clic...</p>
+    <button id="botop">Boton2</button>
     <script>
         // Level 1
 
@@ -32,6 +37,11 @@
         console.log(select.value)
 
         console.log(document.querySelector("#accepto").checked)
+
+        // Level 2
+        document.querySelector("#boto1").addEventListener("click",function() {console.log("Clic Rebut!")})
+
+        document.querySelector("#botop").addEventListener("click", function () {document.querySelector("#missatge").textContent ="Has fet clic!"})
     </script>
 </body>
 </html>
