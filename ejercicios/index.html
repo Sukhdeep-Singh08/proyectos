@@ -48,6 +48,15 @@
     <div id="panell">Contingut</div>
     <button id="amagar">Amagar</button>
     <button id="mostrar">Mostrar</button>
+
+    <p><strong>Nivell 4 — Combinant conceptes</strong></p>
+    <input type="text" id="nom2">
+    <button id="boto8">boto8</button>
+    <p id="benvinguda">-</p>
+    <input type="text" id="item">
+    <button id="afegir">afegir</button>
+    <ul id="llista">
+    </ul>
     <script>
         // Level 1----------
             // 1
@@ -120,7 +129,34 @@
         amagar.addEventListener("click", () => {panell.classList.add("amagat")})
 
         mostrar.addEventListener("click", () => {panell.classList.remove("amagat")} )
+        // Level 4-----------
+            // 16
+        let nom2 = document.querySelector("#nom2")
+        let button8 = document.querySelector("#boto8")
+        let benvinguda = document.querySelector("#benvinguda")
+        function buit() {
+            if (nom2.value.trim() !== "" ) {
+                benvinguda.innerHTML =  "Hola, " + nom2.value + "!"
+            } else {
+                benvinguda.textContent = "Escriu el teu nom"
+            }
+        }
 
+        button8.addEventListener("click", buit)
+            // 17
+        let item = document.querySelector("#item")
+        let afegir = document.querySelector("#afegir")
+        let ul = document.querySelector("#llista")
+        function lista(){
+            if (item.value.trim() !== ""){
+                ul.innerHTML += `<li> ${item.value} </li>`
+            }
+            item.value = ""
+        }
+        afegir.addEventListener("click", lista)
+            // 18
+            // 19
+            // 20
     </script>
 </body>
 </html>
