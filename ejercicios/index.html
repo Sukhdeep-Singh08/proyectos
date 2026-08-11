@@ -38,9 +38,9 @@
     <p><strong>Nivell 3 — classList</strong></p>
     <p id="paragraf">Text</p>
     <button id="boto5">boto5</button>
+    <button id="boto6">boto6</button>
     <script>
-        // Level 1
-
+        // Level 1----------
         let salut = document.querySelector("#salut")
         console.log(salut.textContent)
 
@@ -54,7 +54,7 @@
 
         console.log(document.querySelector("#accepto").checked)
 
-        // Level 2
+        // Level 2-----------
         document.querySelector("#boto1").addEventListener("click",function() {console.log("Clic Rebut!")})
 
         document.querySelector("#botop").addEventListener("click", function () {document.querySelector("#missatge").textContent ="Has fet clic!"})
@@ -70,8 +70,10 @@
         let boto4 = document.querySelector("#boto4") 
         boto4.addEventListener("click", () => {camp.value = "Text Introduït per JS"})
 
+        // Level 3--------
         let paragraf = document.querySelector("#paragraf")
         document.querySelector("#boto5").addEventListener("click", () => {paragraf.classList.add("vermell")})
+        document.querySelector("#boto6").addEventListener("click", () => {paragraf.classList.remove("vermell")})
     </script>
 </body>
 </html>
