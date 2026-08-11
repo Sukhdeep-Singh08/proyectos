@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style> 
+        .vermell {
+            color: red;
+        }
+
+    </style>
 </head>
 <body>
     <p><strong>Nivell 1 — Selectors i lectura</strong></p>
@@ -28,6 +34,10 @@
     <p id="sortida">-</p>
     <input type="text" id="camp">
     <button id="boto4">boto4</button>
+
+    <p><strong>Nivell 3 — classList</strong></p>
+    <p id="paragraf">Text</p>
+    <button id="boto5">boto5</button>
     <script>
         // Level 1
 
@@ -59,6 +69,9 @@
         let camp = document.querySelector("#camp")
         let boto4 = document.querySelector("#boto4") 
         boto4.addEventListener("click", () => {camp.value = "Text Introduït per JS"})
+
+        let paragraf = document.querySelector("#paragraf")
+        document.querySelector("#boto5").addEventListener("click", () => {paragraf.classList.add("vermell")})
     </script>
 </body>
 </html>
