@@ -55,8 +55,9 @@
     <p id="benvinguda">-</p>
     <input type="text" id="item">
     <button id="afegir">afegir</button>
-    <ul id="llista">
-    </ul>
+    <ul id="llista"></ul>
+    <input type="checkbox" name="" id="checkbox">
+    <span id="estat">Inactiu</span>
     <script>
         // Level 1----------
             // 1
@@ -155,7 +156,18 @@
         }
         afegir.addEventListener("click", lista)
             // 18
+        let checkbox = document.querySelector("#checkbox")
+        let estat1 = document.querySelector("#estat")
+        function estat() {
+            if (checkbox.checked) {
+                estat1.textContent = "Actiu"
+            } else {
+                estat1.textContent = "Inactiu"
+            }
+        }
+        checkbox.addEventListener("change",estat)
             // 19
+
             // 20
     </script>
 </body>
