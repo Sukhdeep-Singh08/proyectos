@@ -12,6 +12,12 @@
         .amagat { 
             display: none;
         }
+        .fosc{ 
+            background-color: black;
+            color: wheat; 
+            height: 150px; 
+            width: 150px;
+        }
     </style>
 </head>
 <body>
@@ -58,6 +64,24 @@
     <ul id="llista"></ul>
     <input type="checkbox" name="" id="checkbox">
     <span id="estat">Inactiu</span>
+    <select name="" id="tema">
+        <option value="clar">clar</option>
+        <option value="fosc">fosc</option>
+    </select>
+    <div id="contenidor">Contingut</div>
+
+    <label for="">Nom</label>
+    <input type="text" id="nomresum">
+    <label for="">Ciutat</label>
+    <select name="" id="ciutat2">
+        <option value="Barcelona">Barcelona</option>
+        <option value="Girona">Girona</option>
+    </select>
+    <label for="">Acceptació
+        <input type="checkbox" name="acept" id="Si">Si
+    </label>
+    <button id="generar">Generar</button>
+    <div id="resultadodiv"></div>
     <script>
         // Level 1----------
             // 1
@@ -167,8 +191,32 @@
         }
         checkbox.addEventListener("change",estat)
             // 19
-
+        let selectfc = document.querySelector("#tema")
+        let divcontenidor = document.querySelector("#contenidor")
+        function cambio(){
+            if (selectfc.value == "fosc") {
+                divcontenidor.classList.add("fosc")
+            } else {
+                divcontenidor.classList.remove("fosc")
+            }
+        }
+        selectfc.addEventListener("change", cambio)
             // 20
+        let nomresum = document.querySelector("#nomresum")
+        let selectciutat = document.querySelector("#ciutat2")
+        let si = document.querySelector("#Si")
+        let btngenerar = document.querySelector("#generar")
+        let resultadodiv = document.querySelector("#resultadodiv")
+        function generar(){
+            textoaceptat = ""
+            if(si.checked){
+                textoaceptat ="Si"
+            } else {
+                textoaceptat = "No"
+            }
+            resultadodiv.innerHTML = `<p>Nom ${nomresum.value}, Ciutat ${selectciutat.value}, Acceptat: ${textoaceptat}</p>`
+        }
+        btngenerar.addEventListener("click", generar)
     </script>
 </body>
 </html>
