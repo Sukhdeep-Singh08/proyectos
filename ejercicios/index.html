@@ -26,6 +26,8 @@
     <button id="boto3">Boton3</button>
     <input type="text" id="entrada">
     <p id="sortida">-</p>
+    <input type="text" id="camp">
+    <button id="boto4">boto4</button>
     <script>
         // Level 1
 
@@ -53,6 +55,10 @@
         let entrada = document.querySelector("#entrada")
         let sortida = document.querySelector("#sortida")
         entrada.addEventListener("input", () => {sortida.textContent = entrada.value})
+
+        let camp = document.querySelector("#camp")
+        let boto4 = document.querySelector("#boto4") 
+        boto4.addEventListener("click", () => {camp.value = "Text Introduït per JS"})
     </script>
 </body>
 </html>
