@@ -24,6 +24,8 @@
     <button id="botop">Boton2</button>
     <div id="zona" style="background-color: yellow; width: 250px; height: 100px;"></div>
     <button id="boto3">Boton3</button>
+    <input type="text" id="entrada">
+    <p id="sortida">-</p>
     <script>
         // Level 1
 
@@ -47,6 +49,10 @@
 
         let zona = document.querySelector("#zona")
         document.querySelector("#boto3").addEventListener("click", () => {zona.innerHTML = "<strong>Contingut nou</strong>"})
+
+        let entrada = document.querySelector("#entrada")
+        let sortida = document.querySelector("#sortida")
+        entrada.addEventListener("input", () => {sortida.textContent = entrada.value})
     </script>
 </body>
 </html>
