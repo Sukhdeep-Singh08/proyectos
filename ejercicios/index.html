@@ -39,6 +39,7 @@
     <p id="paragraf">Text</p>
     <button id="boto5">boto5</button>
     <button id="boto6">boto6</button>
+    <button id="boto7">Alternar-color</button>
     <script>
         // Level 1----------
         let salut = document.querySelector("#salut")
@@ -73,7 +74,21 @@
         // Level 3--------
         let paragraf = document.querySelector("#paragraf")
         document.querySelector("#boto5").addEventListener("click", () => {paragraf.classList.add("vermell")})
+
         document.querySelector("#boto6").addEventListener("click", () => {paragraf.classList.remove("vermell")})
+
+        // document.querySelector("#boto7").addEventListener("click", () => {paragraf.classList.toggle("vermell")})
+
+        function cambiar() {
+            if (paragraf.classList.contains("vermell")) {
+                paragraf.classList.remove("vermell")
+            } else {
+                paragraf.classList.add("vermell")
+            }
+        }
+
+        document.querySelector("#boto7").addEventListener("click", cambiar)
+
     </script>
 </body>
 </html>
