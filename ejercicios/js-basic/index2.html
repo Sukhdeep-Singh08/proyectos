@@ -100,21 +100,7 @@
         let verdura = document.querySelector("#verdura")
         let leche = document.querySelector("#leche")
         let seleccionadosul = document.querySelector("#seleccionats");
-        [fruta, verdura, leche].forEach(ing => {
-            ing.addEventListener("change",() => {
-                let htmllista = ""
-                if (fruta.checked) {
-                    htmllista += `<li>${fruta.value}</li>`
-                }
-                if (verdura.checked) {
-                    htmllista += `<li>${verdura.value}</li>`
-                }
-                if (leche.checked) {
-                    htmllista += `<li>${leche.value}</li>`
-                }
-                seleccionadosul.innerHTML = htmllista
-            })
-        });
+        fruta.addEventListener("change")
     </script>
 </body>
 </html>
