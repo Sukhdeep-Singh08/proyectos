@@ -28,7 +28,7 @@
         let caixa = document.querySelector("#caixa")
         let boto1 = document.querySelector("#boto1")
 
-        boto1.addEventListener("click", () => {caixa.innerHTML += `<p>Primer paràgraf</p><p>Segon paràgraf</p>`})
+        boto1.addEventListener("click", () => {caixa.innerHTML = `<p>Primer paràgraf</p><p>Segon paràgraf</p>`})
         // 22
         console.log(caixa.innerHTML)
         // 23
@@ -62,8 +62,8 @@
             let html = ""
             for(let i=0;i<dies.length;i++){
                 html += `<li> ${dies[i]}</li>`
-                llistaordenada.innerHTML = html
             }
+            llistaordenada.innerHTML = html
         }
         buttondies.addEventListener("click", llista)
         // 27
@@ -71,11 +71,13 @@
         let bototabla = document.querySelector("#productes")
         let taulaproductes = document.querySelector("#taulaproductes")
         function tabla(){
+            let htmlTaula = ""
             for(let i=0;i<productes.length;i++){
-                taulaproductes.innerHTML = `<table>
-                    <tr><td>${productes[0][0]}${productes[0][i]}</td><td>${productes[1][0]}${productes[1][i]}</td></tr>
-                    </table>`
+                htmlTaula += `
+                    <tr><td>${productes[i][0]}</td><td>${productes[i][1]}</td></tr>
+                    `
             }
+            taulaproductes.innerHTML = `<table>${htmlTaula}</table>`
         }
         bototabla.addEventListener("click", tabla)
     </script>
