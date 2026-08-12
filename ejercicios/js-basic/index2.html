@@ -23,6 +23,16 @@
     <ol id="llistaordenada"></ol>
     <button id="productes">Productes</button>
     <div id="taulaproductes"></div>
+    <select name="" id="opcio">
+        <option value="A">A</option>
+        <option value="B">B</option>
+    </select>
+    <div id="descripcio"></div>
+    <hr>
+    <input type="checkbox" name="" id="fruta" value="fruta">Fruita
+    <input type="checkbox" name="" id="verdura" value="vedura">Verdura
+    <input type="checkbox" name="" id="leche" value="leche">Làctics
+    <ul id="seleccionats"></ul>
     <script>
         // 21
         let caixa = document.querySelector("#caixa")
@@ -80,6 +90,32 @@
             taulaproductes.innerHTML = `<table>${htmlTaula}</table>`
         }
         bototabla.addEventListener("click", tabla)
+        // 28
+        let selectopt = document.querySelector("#opcio")
+        let descripcio = document.querySelector("#descripcio")
+
+        selectopt.addEventListener("change", () => {descripcio.innerHTML = `<h3> Títol ${selectopt.value} </h3> <p>Text ${selectopt.value}</p>`})
+        // 29
+        let fruta = document.querySelector("#fruta")
+        console.log
+        let verdura = document.querySelector("#verdura")
+        let leche = document.querySelector("#leche")
+        let seleccionadosul = document.querySelector("#seleccionats");
+        [fruta, verdura, leche].forEach(ing => {
+            ing.addEventListener("change",() => {
+                let htmllista = ""
+                if (fruta.checked) {
+                    htmllista += `<li>${fruta.value}</li>`
+                }
+                if (verdura.checked) {
+                    htmllista += `<li>${verdura.value}</li>`
+                }
+                if (leche.checked) {
+                    htmllista += `<li>${leche.value}</li>`
+                }
+                seleccionadosul.innerHTML = htmllista
+            })
+        });
     </script>
 </body>
 </html>
