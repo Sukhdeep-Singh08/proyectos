@@ -33,6 +33,8 @@
     <input type="checkbox" name="" id="verdura" value="vedura">Verdura
     <input type="checkbox" name="" id="leche" value="leche">Làctics
     <ul id="seleccionats"></ul>
+    <button id="incrementar">incrementar</button>
+    <div id="comptador"></div>
     <script>
         // 21
         let caixa = document.querySelector("#caixa")
@@ -116,6 +118,14 @@
         fruta.addEventListener("change",comida)
         verdura.addEventListener("change",comida)
         leche.addEventListener("change",comida)
+        // 30
+        let incrementar = document.querySelector("#incrementar")
+        let comptador = document.querySelector("#comptador")
+        let n = 0
+        incrementar.addEventListener("click", () =>{
+            n++
+            comptador.innerHTML= `Has clicat <strong> ${n} </strong> vegades`
+        })
     </script>
 </body>
 </html>
