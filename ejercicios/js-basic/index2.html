@@ -100,7 +100,22 @@
         let verdura = document.querySelector("#verdura")
         let leche = document.querySelector("#leche")
         let seleccionadosul = document.querySelector("#seleccionats");
-        fruta.addEventListener("change")
+        function comida(){
+            let frutas = ""
+            if(fruta.checked){
+                frutas += `<li> ${fruta.value}</li>            `
+            }
+            if(verdura.checked){
+                frutas += `<li> ${verdura.value}</li>            `
+            }
+            if(leche.checked){
+                frutas += `<li> ${leche.value}</li>            `
+            }
+            seleccionadosul.innerHTML = frutas
+        }
+        fruta.addEventListener("change",comida)
+        verdura.addEventListener("change",comida)
+        leche.addEventListener("change",comida)
     </script>
 </body>
 </html>
