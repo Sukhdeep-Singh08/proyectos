@@ -4,17 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .error{color: red;}
+        .ok{color: green;}
+    </style>
 </head>
 <body>
-    <div id="caixa"></div>
+    <div id="caixa"><p>paràgrafs</p></div>
     <button id="boto1">boton1</button>
+    <input type="text" id="texte">
+    <div id="preview"></div>
+    <div id="contenidor"></div>
+    <button id="afegir">Afegir Linea</button>
+    <input type="text" id="usuari">
+    <button id="validar">Validar</button>
+    <div id="avis"></div>
+    <button id="dies">Dias</button>
+    <ol id="llistaordenada"></ol>
+    <button id="productes">Productes</button>
+    <div id="taulaproductes"></div>
     <script>
         // 21
         let caixa = document.querySelector("#caixa")
         let boto1 = document.querySelector("#boto1")
 
-        boto1.addEventListener("click", () => {caixa.innerHTML = `<p>Primer paràgraf</p><p>Segon paràgraf</p>`})
+        boto1.addEventListener("click", () => {caixa.innerHTML += `<p>Primer paràgraf</p><p>Segon paràgraf</p>`})
         // 22
+        console.log(caixa.innerHTML)
+        // 23
+        let inputt = document.querySelector("#texte")
+        let preview = document.querySelector("#preview")
+
+        inputt.addEventListener("input", () => {preview.innerHTML = `<strong> ${inputt.value} </strong>`})
+        // 24
+        let contenidor = document.querySelector("#contenidor")
+        let afl = document.querySelector("#afegir")
+
+        afl.addEventListener("click", () => {contenidor.innerHTML += `<p>Nova línia ${new Date()} </p>`})
+        // 25
+        let inputv = document.querySelector("#usuari")
+        let validar = document.querySelector("#validar")
+        let divavi = document.querySelector("#avis")
+        function error(){
+            if (inputv.value.trim() ===""){
+                divavi.innerHTML = `<span class="error">El camp és obligatori</span>`
+            } else{
+                divavi.innerHTML = `<span class="ok">Correcte</span>`
+            }
+        }
+
+        validar.addEventListener("click", error)
+        // 26
+        let dies = ["Dilluns", "Dimarts", "Dimecres"]
+        let buttondies = document.querySelector("#dies")
+        let llistaordenada = document.querySelector("#llistaordenada")
+        function llista(){
+            let html = ""
+            for(let i=0;i<dies.length;i++){
+                html += `<li> ${dies[i]}</li>`
+                llistaordenada.innerHTML = html
+            }
+        }
+        buttondies.addEventListener("click", llista)
+        // 27
+        let productes = [["Poma", "1.2"], ["Llet", "0.9"]]
+        let bototabla = document.querySelector("#productes")
+        let taulaproductes = document.querySelector("#taulaproductes")
+        function tabla(){
+            for(let i=0;i<productes.length;i++){
+                taulaproductes.innerHTML = `<table>
+                    <tr><td>${productes[0][0]}${productes[0][i]}</td><td>${productes[1][0]}${productes[1][i]}</td></tr>
+                    </table>`
+            }
+        }
+        bototabla.addEventListener("click", tabla)
     </script>
 </body>
 </html>
