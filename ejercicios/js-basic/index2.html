@@ -168,10 +168,8 @@
         let crearfitxa = document.querySelector("#crearfitxa");
         let fitxa = document.querySelector("#fitxa");
         crearfitxa.addEventListener("click", () =>{
-            if (nom3.value.trim() === ""){
-                fitxa.innerHTML = `<p class="error">Omple tots els camps</p>`
-            } else if(cognom.value.trim() === ""){
-                fitxa.innerHTML = `<p class="error">Omple tots els camps</p>`           
+            if (nom3.value.trim() === "" || cognom.value.trim() === ""){
+                fitxa.innerHTML = `<p class="error">Omple tots els camps</p>`        
             } else {
                 fitxa.innerHTML = `<h4> ${nom3.value}  ${cognom.value} </h4> <p>Afegit avui</p>`     
             }
@@ -182,9 +180,11 @@
         let añadir = document.querySelector("#afegir2")
         let limpiar = document.querySelector("#netejar2")
         let llistaitem = document.querySelector("#llistaitems")
-
         añadir.addEventListener("click",() => {
-            llistaitem.innerHTML += `<li>${item.value}</li>`
+            if (item.value.trim() !== "") {
+                llistaitem.innerHTML += `<li>${item.value}</li>`                
+            }
+            item.value = ""
         })
         limpiar.addEventListener("click", () => {
             llistaitem.textContent = ""
