@@ -62,6 +62,14 @@
     <hr>
     <button id="ala">boton</button>
     <div id="log"></div>
+    <hr>
+    <select name="" id="assignatures" multiple>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+    </select>
+    <div id="resum"></div>
     <script>
         // 21
         let caixa = document.querySelector("#caixa")
@@ -230,6 +238,21 @@
             let hora = new Date()
             log.innerHTML += `<p>Acció ${comptador1} a ${hora.getHours()}:${hora.getMinutes()} </p>`
         })
+        // 38
+        let assignatures = document.querySelector("#assignatures")
+        let divresum = document.querySelector("#resum")
+        let options= document.querySelectorAll("#assignatures option")
+        function resum(){
+            let llistafinal = ""
+            for(let i = 0;i <options.length;i++){
+                let optionActual = options[i];
+                if(optionActual.selected == true){
+                    llistafinal += `<li>${optionActual.value}</li>`
+                }
+            }
+            divresum.innerHTML = `<ul>${llistafinal}</ul>`
+        }
+        assignatures.addEventListener("change", resum)
     </script>
 </body>
 </html>
