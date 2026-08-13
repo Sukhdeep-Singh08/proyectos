@@ -7,6 +7,7 @@
     <style>
         .error{color: red;}
         .ok{color: green;}
+        .destacat{color: aquamarine;}
     </style>
 </head>
 <body>
@@ -50,6 +51,9 @@
     <button id="afegir2">Afegir</button>
     <button id="netejar2">Netejar</button>
     <ul id="llistaitems"></ul>
+    <hr>
+    <div id="target">Contingut</div>
+    <button id="target-button">button</button>
     <script>
         // 21
         let caixa = document.querySelector("#caixa")
@@ -189,6 +193,14 @@
         limpiar.addEventListener("click", () => {
             llistaitem.textContent = ""
             item.value = ""
+        })
+        // 35
+        let target = document.querySelector("#target")
+        let buttontarget = document.querySelector("#target-button")
+
+        buttontarget.addEventListener("click",() => {
+            target.classList.add("destacat")
+            target.innerHTML = `<span>Contingut Actualitzat </span>`
         })
     </script>
 </body>
