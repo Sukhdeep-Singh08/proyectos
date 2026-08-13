@@ -45,6 +45,11 @@
     <input type="text" id="cognom">
     <button id="crearfitxa">crearfitxa</button>
     <div id="fitxa"></div>
+    <hr>
+    <input type="text" id="item">
+    <button id="afegir2">Afegir</button>
+    <button id="netejar2">Netejar</button>
+    <ul id="llistaitems"></ul>
     <script>
         // 21
         let caixa = document.querySelector("#caixa")
@@ -172,6 +177,19 @@
             }
         })
         console.log(fitxa)
+        // 34
+        let item = document.querySelector("#item")
+        let añadir = document.querySelector("#afegir2")
+        let limpiar = document.querySelector("#netejar2")
+        let llistaitem = document.querySelector("#llistaitems")
+
+        añadir.addEventListener("click",() => {
+            llistaitem.innerHTML += `<li>${item.value}</li>`
+        })
+        limpiar.addEventListener("click", () => {
+            llistaitem.textContent = ""
+            item.value = ""
+        })
     </script>
 </body>
 </html>
