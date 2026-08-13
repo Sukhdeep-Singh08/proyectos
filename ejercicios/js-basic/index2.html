@@ -54,6 +54,14 @@
     <hr>
     <div id="target">Contingut</div>
     <button id="target-button">button</button>
+    <hr>
+    <input type="text" id="titol">
+    <input type="text" id="cos">
+    <div id="vistaprevia"></div>
+    <button id="button8">boton</button>
+    <hr>
+    <button id="ala">boton</button>
+    <div id="log"></div>
     <script>
         // 21
         let caixa = document.querySelector("#caixa")
@@ -201,6 +209,26 @@
         buttontarget.addEventListener("click",() => {
             target.classList.add("destacat")
             target.innerHTML = `<span>Contingut Actualitzat </span>`
+        })
+        // 36
+        let boton8 = document.querySelector("#button8")
+        let titol = document.querySelector("#titol")
+        let cos = document.querySelector("#cos")
+        let vista = document.querySelector("#vistaprevia")
+        function actualizar() {
+            vista.innerHTML = `<h3> ${titol.value} </h3><p><em> ${cos.value}</em></p>`
+
+        }
+        titol.addEventListener("input", actualizar)
+        cos.addEventListener("input",actualizar)
+        // 37
+        let button37 = document.querySelector("#ala")
+        let log = document.querySelector("#log")
+        let comptador1 = 0
+        button37.addEventListener("click", () => {
+            comptador1++
+            let hora = new Date()
+            log.innerHTML += `<p>Acció ${comptador1} a ${hora.getHours()}:${hora.getMinutes()} </p>`
         })
     </script>
 </body>
