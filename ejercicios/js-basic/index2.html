@@ -35,6 +35,16 @@
     <ul id="seleccionats"></ul>
     <button id="incrementar">incrementar</button>
     <div id="comptador"></div>
+    <button id="hora1">Quina hora és?</button>
+    <p id="hora"></p>
+    <hr>
+    <div id="contingutAlternat">Estat A</div>
+    <button id="boto4">boto4</button>
+    <hr>
+    <input type="text" id="nom3">
+    <input type="text" id="cognom">
+    <button id="crearfitxa">crearfitxa</button>
+    <div id="fitxa"></div>
     <script>
         // 21
         let caixa = document.querySelector("#caixa")
@@ -126,6 +136,42 @@
             n++
             comptador.innerHTML= `Has clicat <strong> ${n} </strong> vegades`
         })
+        // 31
+        let tiempo = document.querySelector("#hora1")
+        let parrafo = document.querySelector("#hora")
+
+        tiempo.addEventListener("click", () =>{
+            let ara = new Date()
+            parrafo.innerHTML = `Són les <em> ${ara.getHours()}: ${ara.getMinutes()} </em>`
+        })
+        // 32
+        let contingutAlternat = document.querySelector("#contingutAlternat")
+        let boto4 = document.querySelector("#boto4")
+        let mostrarA = true
+        boto4.addEventListener("click", () =>{
+            if (mostrarA === true){
+                mostrarA = false
+                contingutAlternat.innerHTML = "<strong>Estat B</strong>"
+            } else {
+                contingutAlternat.innerHTML = `<em>Estat A </em>`
+                mostrarA = true
+            }
+        })
+        // 33
+        let nom3 = document.querySelector("#nom3")
+        let cognom = document.querySelector("#cognom")
+        let crearfitxa = document.querySelector("#crearfitxa");
+        let fitxa = document.querySelector("#fitxa");
+        crearfitxa.addEventListener("click", () =>{
+            if (nom3.value.trim() === ""){
+                fitxa.innerHTML = `<p class="error">Omple tots els camps</p>`
+            } else if(cognom.value.trim() === ""){
+                fitxa.innerHTML = `<p class="error">Omple tots els camps</p>`           
+            } else {
+                fitxa.innerHTML = `<h4> ${nom3.value}  ${cognom.value} </h4> <p>Afegit avui</p>`     
+            }
+        })
+        console.log(fitxa)
     </script>
 </body>
 </html>
