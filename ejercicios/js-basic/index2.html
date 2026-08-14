@@ -70,6 +70,14 @@
         <option value="14">14</option>
     </select>
     <div id="resum"></div>
+    <hr>
+    <input type="text" id="nomf">
+    <input type="text" id="producte">
+    <input type="text" id="preu">
+    <button id="afgila">afegir</button>
+    <table id="taula">
+        <tbody id="cost"></tbody>
+    </table>
     <script>
         // 21
         let caixa = document.querySelector("#caixa")
@@ -253,6 +261,22 @@
             divresum.innerHTML = `<ul>${llistafinal}</ul>`
         }
         assignatures.addEventListener("change", resum)
+        // 39
+        let afgila = document.querySelector("#afgila")
+        let formularinom = document.querySelector("#nomf")
+        let producte = document.querySelector("#producte")
+        let preu = document.querySelector("#preu")
+        let tbody = document.querySelector("#cost")
+        console.log(tbody)
+        let array = [];
+        afgila.addEventListener("click", () => {
+            array.push([formularinom.value, producte.value, preu.value]);
+            let tableinfo = ""
+            for(let i = 0;i<array.length;i++){
+                tableinfo += `<tr><td>${array[i][0]}</td><td>${array[i][1]}</td><td>${array[i][2]}</td></tr>`
+            };
+            tbody.innerHTML = tableinfo;
+        })
     </script>
 </body>
 </html>
