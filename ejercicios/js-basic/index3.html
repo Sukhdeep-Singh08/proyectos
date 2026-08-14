@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error { border: 2px solid red; }
+        .ok { border: 2px solid green; }
+        .informe { margin-top: 1rem; padding: 1rem; background: #f5f5f5; border-radius: 8px; }
+        .informe section { margin-bottom: 1rem; }
+        .informe h2 { font-size: 1.1rem; margin: 0.5rem 0; }
+        label { display: block; margin-top: 0.5rem; }
+        input, select { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body>
+    <form id="formInforme">
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" placeholder="El teu nom">
+
+        <label for="edat">Edat</label>
+        <input type="number" id="edat" placeholder="Edat" min="0">
+
+        <label for="ciutat">Ciutat</label>
+        <select id="ciutat">
+            <option value="">— Selecciona —</option>
+            <option value="Barcelona">Barcelona</option>
+            <option value="Girona">Girona</option>
+            <option value="Lleida">Lleida</option>
+            <option value="Tarragona">Tarragona</option>
+        </select>
+
+        <label>
+        <input type="checkbox" id="accepto" name="accepto">
+        Accepta les condicions
+        </label>
+
+        <button type="button" id="botoGenerar">Generar informe</button>
+    </form>
+    <div id="informe" class="informe"></div>
+
+    <script>
+        let nom = document.querySelector("#nom")
+        let edat = document.querySelector("#edat")
+        let ciutat = document.querySelector("#ciutat")
+        let condicions = document.querySelector("#accepto")
+        let button = document.querySelector("#botoGenerar")
+        let informe = document.querySelector("#informe")
+
+        button.addEventListener("click", () => {
+            let accepto = ""
+            if (condicions.checked){
+                accepto = "Si"
+            } else{
+                accepto = "No"
+            }
+
+            let html = `
+            <section>
+                <h2>Dades personals</h2>
+                <p>Nom: ${nom.value}</p>
+                <p>Edat: ${edat.value}</p>
+                <p>Ciutat: ${ciutat.value}</p>
+                <p>Condicions: ${accepto} </p>    
+            </section>
+            `  
+            if(nom.value.trim() === ""){
+                nom.classList.add("error")
+            } else {
+                nom.classList.remove("error")
+            }
+            if(edat.value.trim() === "" || edat.value == 0){
+                edat.classList.add("error")
+            }else {
+                edat.classList.remove("error")
+            }
+            if(ciutat.value == ""){
+                ciutat.classList.add("error")
+            } else{
+                ciutat.classList.remove("error")
+            }
+
+            if (nom.value.trim() !== "" && edat.value.trim() !== "" && ciutat.value !== ""){
+                informe.innerHTML = html
+            } else {
+                informe.innerHTML = `<p><strong>Falta complir camps correctament</strong></p>`
+            }
+        })
+    </script>
+</body>
+</html>
