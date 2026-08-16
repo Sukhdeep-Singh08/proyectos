@@ -6,6 +6,9 @@
     <title>Document</title>
 </head>
 <body>
+    <input type="text" id="nom">
+    <input type="number" id="edat">
+    <button id="boto1">AS</button>
     <script>
     // Level 1 - Array d'objectes i .push(0)
         // 1
@@ -26,6 +29,21 @@
         let nom = "anna";
         let edat = "25";
         let ciutat = "Barcelona"
+        let persona = []
+        persona.push({nom: nom,edat: edat,ciutat: ciutat})
+        console.log(persona)
+        // 5
+        let inputn = document.querySelector("#nom")
+        let inputd = document.querySelector("#edat")
+        let button = document.querySelector("#boto1")
+
+        button.addEventListener("click",() => {
+            let p = {
+                nom: inputn.value,
+                edat: inputd.value
+            };
+            console.log(p)
+        })
     </script>
 </body>
 </html>
