@@ -6,6 +6,26 @@
     <title>Document</title>
 </head>
 <body>
-    <script></script>
+    <script>
+    // Level 1 - Array d'objectes i .push(0)
+        // 1
+        let llibre = {
+            titol: "Don Quixot",
+            autor: "Cervantes",
+            any: "1605"
+        }
+        console.log(llibre.titol)
+        // 2
+        let llibres = [{titol: "A",autor: "X"},{titol:"B",autor:"Y"}];
+        console.log(llibres[1].titol)
+        console.log(llibres.length)
+        // 3
+        llibres.push({titol:"C",autor:"<"})
+        console.log(llibres.length)
+        // 4
+        let nom = "anna";
+        let edat = "25";
+        let ciutat = "Barcelona"
+    </script>
 </body>
 </html>
