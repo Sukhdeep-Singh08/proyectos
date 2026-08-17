@@ -9,6 +9,15 @@
     <input type="text" id="nom">
     <input type="number" id="edat">
     <button id="boto1">AS</button>
+    <hr>
+    <ul id="llista">
+
+    </ul>
+    <button id="boto2">ASDa</button>
+    <hr>
+    <div id="zona">
+
+    </div>
     <script>
     // Level 1 - Array d'objectes i .push(0)
         // 1
@@ -44,6 +53,38 @@
             };
             console.log(p)
         })
+    // Level 2 -- Renderitzar array amb for i innerHTML
+        // 6
+        let fruits = ["Poma","Plàtan","Taronja"]
+        for(let i=0;i<fruits.length;i++){
+            console.log(fruits[i])
+        }
+        // 7
+        let button2 = document.querySelector("#boto2")
+
+
+        button2.addEventListener("click",() => {
+            let html = "";
+            for(let i=0;i<fruits.length;i++){
+                html += `<li> ${fruits[i]} </li>`;
+            }            
+            document.querySelector("#llista").innerHTML = html;
+        })
+        // 8 - 9 - 10
+        let productes = [ { nom: "Llapis", preu: 1.2 }, { nom: "Goma", preu: 0.5 } ]
+        function arra(){
+            let zona = document.querySelector("#zona")
+            let producte = ""
+            if(productes.length === 0){
+                producte = `<p>No hi ha productes.</p>`
+            } else {
+                for(let i = 0;i<productes.length;i++){
+                    producte += `<div class="producte"><strong>${productes[i].nom}</strong> - ${productes[i].preu}</div>`                         
+                }
+            }
+            zona.innerHTML = producte
+        }
+        arra()
     </script>
 </body>
 </html>
