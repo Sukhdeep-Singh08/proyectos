@@ -18,6 +18,18 @@
     <div id="zona">
 
     </div>
+    <hr>
+    <form id="form1">
+        <input type="text" #input>
+        <button type="submit" id="submit">Submit</button>
+    </form>
+    <hr>
+    <form id="form2">
+        <input type="text" id="nom2">
+        <input type="text" id="cognom">
+        <button type="submit" id="boto3">ASDA</button>
+    </form>
+    <div id="llista2"></div>
     <script>
     // Level 1 - Array d'objectes i .push(0)
         // 1
@@ -85,6 +97,28 @@
             zona.innerHTML = producte
         }
         arra()
+    // Level 3 - Formulari submit i preventDefault
+        // 11
+        let form = document.querySelector("#form1")
+        let submit = document.querySelector("#submit")
+
+        form.addEventListener("submit",function(e) {e.preventDefault(); console.log("Formulari enviat")})
+        // 12
+        let input2 = document.querySelector("#nom2");
+        let cognom = document.querySelector("#cognom")
+        let button3 = document.querySelector("#boto3")
+        let persones = [];
+
+        document.querySelector("#form2").addEventListener("submit", function(e) {e.preventDefault(); persones.push({nom: input2.value, cognom: cognom.value});renderitzarPersones(); input2.value = ""; cognom.value = ""})
+        
+        function renderitzarPersones(){
+            let llista2 = document.querySelector("#llista2");
+            let html2 = ""
+            for(let i = 0; i<persones.length; i++){
+                html2 += `<p>Nom : ${persones[i].nom} Cognom: ${persones[i].cognom}</p>`
+            };
+            llista2.innerHTML = html2
+        }
     </script>
 </body>
 </html>
