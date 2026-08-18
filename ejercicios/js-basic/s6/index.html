@@ -30,6 +30,12 @@
         <button type="submit" id="boto3">ASDA</button>
     </form>
     <div id="llista2"></div>
+    <hr>
+    <form action="" id="form3">
+        <input type="text" id="tasca">
+        <button type="submit" id="boto4">Cine</button>
+    </form>
+    <div id="tasques2"></div>
     <script>
     // Level 1 - Array d'objectes i .push(0)
         // 1
@@ -103,13 +109,22 @@
         let submit = document.querySelector("#submit")
 
         form.addEventListener("submit",function(e) {e.preventDefault(); console.log("Formulari enviat")})
-        // 12
+        // 12 - 13 - 14
         let input2 = document.querySelector("#nom2");
         let cognom = document.querySelector("#cognom")
         let button3 = document.querySelector("#boto3")
         let persones = [];
 
-        document.querySelector("#form2").addEventListener("submit", function(e) {e.preventDefault(); persones.push({nom: input2.value, cognom: cognom.value});renderitzarPersones(); input2.value = ""; cognom.value = ""})
+        document.querySelector("#form2").addEventListener("submit", function(e) {
+            e.preventDefault(); 
+            if(input2.value.trim() === "" || cognom.value.trim() === ""){ alert("Omple els camps buits"); 
+            return
+            } else {
+                persones.push({nom: input2.value, cognom: cognom.value})
+            };
+            renderitzarPersones(); 
+            document.querySelector("#form2").reset()    
+        })
         
         function renderitzarPersones(){
             let llista2 = document.querySelector("#llista2");
@@ -119,6 +134,28 @@
             };
             llista2.innerHTML = html2
         }
+        // 15
+        let tasques = []
+        let form3 = document.querySelector("#form3")
+        let tasca = document.querySelector("#tasca")
+        let boto4 = document.querySelector("#boto4")
+        let tasques2 = document.querySelector("#tasques2")
+
+        form3.addEventListener("submit", function(e) {
+            e.preventDefault();
+            if (tasca.value.trim() === ""){alert("Omple els camps buits"); return} else{ tasques.push({titol: tasca.value, completada: false})};
+            creadorTasques();
+            form3.reset();
+        })
+
+        function creadorTasques(){
+            let html3 = "";
+            for(let i = 0; i <tasques.length; i++){
+                html3 += `<li>${tasques[i].titol}</li>`
+            }
+            tasques2.innerHTML = `<ul>${html3}</ul>`
+        }
+
     </script>
 </body>
 </html>
