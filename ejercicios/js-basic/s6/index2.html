@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hidden{display: none;}
+
+    </style>
+</head>
+<body>
+    <section id="panell">Contingut</section>
+    <button id="amagar">Amagar</button>
+    <button id="mostrar">mostrar</button>
+    <hr>
+    <form action="" id="formulariNoticia" class="hidden">ASDASd</form>
+    <button id="noticia">Noticia</button>
+    <hr>
+    <form action="" id="form3">
+        <input type="text" id="tasca">
+        <button type="submit" id="boto4">Cine</button>
+    </form>
+    <div id="tasques2"></div>
+    <script>
+    // Level 4 Mostrar/amagar formulari flux complet
+        // 16
+        let panell = document.querySelector("#panell")
+        let amagar = document.querySelector("#amagar")
+        let mostrar = document.querySelector("#mostrar")
+
+        amagar.addEventListener("click",() => {
+            panell.classList.add("hidden")
+        })
+
+        mostrar.addEventListener("click", () => {
+            panell.classList.remove("hidden")
+        })
+        // 17
+        document.querySelector("#noticia").addEventListener("click",() => {
+            document.querySelector("#formulariNoticia").classList.remove("hidden")
+        })
+        // 18
+
+        let tasques = []
+        let form3 = document.querySelector("#form3")
+        let tasca = document.querySelector("#tasca")
+        let boto4 = document.querySelector("#boto4")
+        let tasques2 = document.querySelector("#tasques2")
+
+        form3.addEventListener("submit", function(e) {
+            e.preventDefault();
+            if (tasca.value.trim() === ""){alert("Omple els camps buits"); return} else{ tasques.push({titol: tasca.value, completada: false})};
+            creadorTasques();
+            form3.reset()
+            form3.classList.add("hidden");
+        })
+
+        function creadorTasques(){
+            let html3 = "";
+            for(let i = 0; i <tasques.length; i++){
+                html3 += `<li>${tasques[i].titol}</li>`
+            }
+            tasques2.innerHTML = `<ul>${html3}</ul>`
+        }  
+    </script>
+</body>
+</html>
