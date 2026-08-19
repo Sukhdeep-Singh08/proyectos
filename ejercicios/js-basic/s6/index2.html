@@ -22,6 +22,30 @@
         <button type="submit" id="boto4">Cine</button>
     </form>
     <div id="tasques2"></div>
+    <hr>
+    <form action="" id="form4">
+        <label for="">nom</label>
+        <input type="text" id="nom">
+        <label for="">email</label>
+        <input type="email" name="" id="email">
+        <label for="">telefon</label>
+        <input type="tel" name="" id="telefon">
+        <button type="submit" id="submit">Submit</button>
+    </form>
+    <hr>
+    <form action="" id="noticies">
+        <label for="">titol</label>
+        <input type="text" id="titol">
+        <label for="">text</label>
+        <input type="text" id="text">
+        <label for="">data</label>
+        <input type="text" id="data">
+        <label for="">autor</label>
+        <input type="text" id="autor">
+        <button type="submit" id="boto5">Submit</button>
+    </form>
+    <button id="newnotice" class="hidden">Nova notícia</button>
+    <div id="resultado"></div>
     <script>
     // Level 4 Mostrar/amagar formulari flux complet
         // 16
@@ -65,7 +89,74 @@
         }  
         // 19
         let contactes = []
-        
+        let nom = document.querySelector("#nom")
+        let form4 = document.querySelector("#form4")
+        let email = document.querySelector("#email")
+        let telefon = document.querySelector("#telefon")
+        let resultado = document.querySelector("#resultado")
+        form4.addEventListener("submit",function(e){
+            e.preventDefault();
+            if (nom.value.trim() === "" || email.value.trim() === "" || telefon.value.trim() === ""){
+                alert("Omple els camps buits");
+                return;
+            } else{
+                contactes.push({nom: nom.value, email: email.value, telefon: telefon.value});
+            };
+            llistaArticles();
+            form4.reset();
+            form4.classList.add("hidden");
+        })
+
+        function llistaArticles(){
+            let html4 = "";
+            for(let i=0;i<contactes.length;i++){
+                html4 += `
+                <p>Nom: ${contactes[i].nom}</p>
+                <p>Email: ${contactes[i].email}</p> <p>Telefon: ${contactes[i].telefon}</p>
+                `;          
+            };
+            resultado.innerHTML = `<div>${html4}</div>`;
+        }
+        // 20
+        let noticia = []
+        let noticies = document.querySelector("#noticies")
+        let titolt = document.querySelector("#titol")
+        let text = document.querySelector("#text")
+        let data = document.querySelector("#data")
+        let autor = document.querySelector("#autor")
+
+        noticies.addEventListener("submit", function(e){
+            e.preventDefault();
+            if (titolt.value.trim() === "" || text.value.trim() === "" || data.value.trim() === "" || autor.value.trim() === ""){
+                alert("Omple els camps buits")
+                return
+            } else {
+                noticia.push({titol: titolt.value,text:text.value,data:data.value,autor:autor.value})
+            }
+            renderitzarNoticies()
+            noticies.reset()
+            noticies.classList.add("hidden")
+            document.querySelector("#newnotice").classList.remove("hidden")
+        })
+        function renderitzarNoticies(){
+            let html5 = "";
+            for (let i = 0; i< noticia.length; i++) {
+                html5 += `<article><p>Titol: ${noticia[i].titol}</p>
+                <p>Text: ${noticia[i].text}</p>
+                <p>Data: ${noticia[i].data}</p>
+                <p>Autor: ${noticia[i].autor}</p></article>`
+            }
+            resultado.innerHTML = html5
+        }
+
+        document.querySelector("#newnotice").addEventListener("click", () => {
+            if(noticies.classList.contains("hidden")){
+                noticies.classList.remove("hidden")
+            }
+            document.querySelector("#newnotice").classList.add("hidden")
+        })
+
+        renderitzarNoticies()
     </script>
 </body>
 </html>
