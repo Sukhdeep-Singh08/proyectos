@@ -6,7 +6,7 @@
     <title>Document</title>
     <style>
         .hidden{display: none;}
-
+        .buit{color: gray; padding: 10px; border: 1px solid black;}
     </style>
 </head>
 <body>
@@ -117,7 +117,7 @@
             };
             resultado.innerHTML = `<div>${html4}</div>`;
         }
-        // 20
+        // 20 - 22 - 23
         let noticia = []
         let noticies = document.querySelector("#noticies")
         let titolt = document.querySelector("#titol")
@@ -140,11 +140,15 @@
         })
         function renderitzarNoticies(){
             let html5 = "";
-            for (let i = 0; i< noticia.length; i++) {
-                html5 += `<article><p>Titol: ${noticia[i].titol}</p>
-                <p>Text: ${noticia[i].text}</p>
-                <p>Data: ${noticia[i].data}</p>
-                <p>Autor: ${noticia[i].autor}</p></article>`
+            if(noticia.length === 0){
+                html5 = `<p class="buit">No hi ha elements.Afegeix-ne desde del formulari</p>`
+            } else {
+                for (let i = 0; i< noticia.length; i++) {
+                    html5 += `<article><p>Titol: ${noticia[i].titol}</p>
+                    <p>Text: ${noticia[i].text}</p>
+                    <p>Data: ${noticia[i].data}</p>
+                    <p>Autor: ${noticia[i].autor}</p></article>`
+                }                
             }
             resultado.innerHTML = html5
         }

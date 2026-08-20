@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="form">
+        <input type="text" id="nom">
+        <input type="number" id="preu">
+        <input type="text" id="descripcio">
+        <button type="submit">Submit</button>
+    </form>
+    <div id="html"></div>
+    <script>
+        // 21
+        let alumnes = [ {nom:"Anna",nota:8},{nom:"Joan",nota: 6}];
+        function renderitzarAlumnes(){
+            let html = "";
+            for(let i = 0;i<alumnes.length;i++){
+                html += `<tr><td>${alumnes[i].nom}</td><td>${alumnes[i].nota}</td></tr>`
+            }
+            document.querySelector("#html").innerHTML= `<table>
+                <thead>
+                    <tr>
+                        <th>Nom</td>
+                        <th>Nota</td>
+                    </tr>
+                </thead>    
+                <tbody>
+                    ${html}
+                </tbody>
+            </table>`
+        }
+        renderitzarAlumnes()
+        // 24
+        let productes = []
+        let form = document.querySelector("#form")
+        let nom = document.querySelector("#nom")
+        let preu = document.querySelector("#preu")
+        let descripcio = document.querySelector("#descripcio")
+
+        form.addEventListener("submit", function(e){
+            e.preventDefault();
+            if(nom.value.trim()==="" || preu.value.trim()===""){
+                alert("Omple els camps buits");
+                return
+            } else{
+                if(descripcio.value.trim() === ""){
+                    descripcio.value = "—"
+                }
+                productes.push({nom:nom.value,preu:preu.value,descripcio:descripcio.value})
+            }
+            renderitzarProductes()  
+            form.reset()          
+        })
+
+        function renderitzarProductes(){
+            let html2 = "";
+            for(let i = 0;i<productes.length;i++){
+                html2 += `<div class="productes"><p>Nom: ${productes[i].nom}</p><p>Preu: ${productes[i].preu}</p><p>descripcio: ${productes[i].descripcio}</p></div>`
+            }
+            html.innerHTML = html2
+        }
+    </script>
+</body>
+</html>
