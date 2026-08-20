@@ -12,7 +12,15 @@
         <input type="text" id="descripcio">
         <button type="submit">Submit</button>
     </form>
-    <div id="html"></div>
+    <hr>
+    <form action="" id="form2">
+        <input type="text" id="tasca">
+        <button type="submit">Envia</button>
+    </form>
+    <div id="html">
+    </div>
+    <ul id="llistaTasques"></ul>
+    <span id="total"></span>
     <script>
         // 21
         let alumnes = [ {nom:"Anna",nota:8},{nom:"Joan",nota: 6}];
@@ -62,6 +70,32 @@
                 html2 += `<div class="productes"><p>Nom: ${productes[i].nom}</p><p>Preu: ${productes[i].preu}</p><p>descripcio: ${productes[i].descripcio}</p></div>`
             }
             html.innerHTML = html2
+        }
+        // 25
+        let tasques = [];
+        let form2 = document.querySelector("#form2");
+        let tascaTitol = document.querySelector("#tasca");
+        let lliscaTasques = document.querySelector("#llistaTasques")
+
+        form2.addEventListener("submit",function(e){
+            e.preventDefault();
+            if(tascaTitol.value.trim() === ""){
+                alert("Omple els camps buits, correctament");
+                return;
+            } else {
+                tasques.push({titol: tascaTitol.value})
+            }
+            console.log(tasques)
+            listaActualitzar();
+            form2.reset()
+        })
+        function listaActualitzar(){
+            let html3 = "";
+            for (let i = 0; i <tasques.length; i++) {
+                html3 += `<li>${tasques[i].titol}</li>`;               
+            };
+            lliscaTasques.innerHTML = html3;
+            document.querySelector("#total").textContent = `Total: ${tasques.length} tasques`
         }
     </script>
 </body>
