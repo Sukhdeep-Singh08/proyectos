@@ -117,7 +117,7 @@
             };
             resultado.innerHTML = `<div>${html4}</div>`;
         }
-        // 20 - 22 - 23
+        // 20 - 22 - 23 - 28
         let noticia = []
         let noticies = document.querySelector("#noticies")
         let titolt = document.querySelector("#titol")
@@ -156,8 +156,9 @@
         document.querySelector("#newnotice").addEventListener("click", () => {
             if(noticies.classList.contains("hidden")){
                 noticies.classList.remove("hidden")
+            } else {
+                noticies.classList.add("hidden")
             }
-            document.querySelector("#newnotice").classList.add("hidden")
         })
 
         renderitzarNoticies()
