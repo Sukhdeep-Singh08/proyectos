@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .error{color:red;}
+    </style>
 </head>
 <body>
     <form action="" id="form">
@@ -21,6 +24,15 @@
     </div>
     <ul id="llistaTasques"></ul>
     <span id="total"></span>
+    <div id="errors"></div>
+    <hr>
+    <form action="" id="form3">
+        <input type="text" id="titol">
+        <input type="date" name="" id="date">
+        <input type="text" id="lloc">
+        <button type="submit">Submit</button>
+    </form>
+    <div id="form3result"></div>
     <script>
         // 21
         let alumnes = [ {nom:"Anna",nota:8},{nom:"Joan",nota: 6}];
@@ -71,18 +83,19 @@
             }
             html.innerHTML = html2
         }
-        // 25
+        // 25 -26
         let tasques = [];
         let form2 = document.querySelector("#form2");
         let tascaTitol = document.querySelector("#tasca");
         let lliscaTasques = document.querySelector("#llistaTasques")
-
+        let divErrors = document.querySelector("#errors")
         form2.addEventListener("submit",function(e){
             e.preventDefault();
             if(tascaTitol.value.trim() === ""){
-                alert("Omple els camps buits, correctament");
+                divErrors.innerHTML = `<p class="error">Si us plau, omple tots els camps obligatoris.</p>`
                 return;
             } else {
+                divErrors.innerHTML = ""
                 tasques.push({titol: tascaTitol.value})
             }
             console.log(tasques)
@@ -96,6 +109,33 @@
             };
             lliscaTasques.innerHTML = html3;
             document.querySelector("#total").textContent = `Total: ${tasques.length} tasques`
+        }
+    // 27
+        let esdeveniments = []
+        let form3 = document.querySelector("#form3")
+        let titol = document.querySelector("#titol")
+        let date = document.querySelector("#date")
+        let lloc = document.querySelector("#lloc")
+
+        form3.addEventListener("submit",function(e){
+            e.preventDefault();
+            if(titol.value.trim() === "" || date.value.trim() === "" || lloc.value.trim() === ""){
+                alert("omple els camps buits");
+                return;
+            } else {
+                esdeveniments.push({Titol: titol.value, Data: date.value, Lloc: lloc.value});
+                console.log(esdeveniments)
+            };
+            renderitzarLlista();
+        })
+
+        function renderitzarLlista(){
+            let html4 = ""
+            for(let i = 0;i<esdeveniments.length;i++){
+                html4 += `
+                <p>Titol : ${esdeveniments[i].Titol}</p><p> Data: ${esdeveniments[i].Data}</p></p> Lloc: ${esdeveniments[i].Lloc}</p>`
+            }
+            document.querySelector("#form3result").innerHTML = html4
         }
     </script>
 </body>
