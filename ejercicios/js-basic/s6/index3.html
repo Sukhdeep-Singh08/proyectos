@@ -111,7 +111,7 @@
             document.querySelector("#total").textContent = `Total: ${tasques.length} tasques`
         }
     // 27
-        let esdeveniments = []
+    let esdeveniments = []
         let form3 = document.querySelector("#form3")
         let titol = document.querySelector("#titol")
         let date = document.querySelector("#date")
@@ -133,7 +133,7 @@
             let html4 = ""
             for(let i = 0;i<esdeveniments.length;i++){
                 html4 += `
-                <p>Titol : ${esdeveniments[i].Titol}</p><p> Data: ${esdeveniments[i].Data}</p></p> Lloc: ${esdeveniments[i].Lloc}</p>`
+                <article>Titol : ${esdeveniments[i].Titol} Data: ${esdeveniments[i].Data} Lloc: ${esdeveniments[i].Lloc}</article>`
             }
             document.querySelector("#form3result").innerHTML = html4
         }
