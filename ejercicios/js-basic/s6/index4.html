@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="form1">
+        <input type="text" id="noticia">
+        <input type="date" name="" id="data">
+        <input type="text" id="autor">
+        <input type="text" id="text">
+        <button type="submit">Submit</button>
+    </form>
+    <div id="noticias"></div>
+    <script>
+        // 32
+        let noticias = []
+        let form1 = document.querySelector("#form1");
+        let noticia = document.querySelector("#noticia")
+        let data = document.querySelector("#data")
+        let autor = document.querySelector("#autor")
+        let text = document.querySelector("#text")
+        let contenedorNoticias = document.querySelector("#noticias")
+
+        form1.addEventListener("submit",function(e){
+            e.preventDefault();
+            if(noticia.value.trim() === "" || data.value.trim() === "" || autor.value.trim() === "" || text.value.trim() === ""){
+                contenedorNoticias.innerHTML = `<p>Omple els camps buits</p>`
+                return
+            } else{
+                noticias.push({titol: noticia.value, data: data.value, autor: autor.value, text: text.value})
+            };
+            renderitzarNoticias();
+        })
+        function renderitzarNoticias(){
+            let html = "";
+            for(let i = 0;i<noticias.length;i++){
+                html += `
+                <article>
+                    <h3>${noticias[i].titol}</h3>
+                    <p>Data: ${noticias[i].data} Autor: ${noticias[i].autor}</p>
+                    <p>${noticias[i].text}</p>
+                </article>`
+            };
+            contenedorNoticias.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
