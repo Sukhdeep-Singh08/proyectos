@@ -6,6 +6,7 @@
     <title>Document</title>
     <style>
         .error{color:red;}
+        .feta { text-decoration: line-through; color: #666; }
     </style>
 </head>
 <body>
@@ -33,6 +34,22 @@
         <button type="submit">Submit</button>
     </form>
     <div id="form3result"></div>
+    <hr>
+    <form action="" id="form4">
+        <input type="text" id="llibretitol">
+        <input type="text" id="autor">
+        <input type="number" name="" id="any">
+        <button id="submit">Submit</button>
+    </form>
+    <div id="llibres">
+
+    </div>
+    <hr>
+    <form action="" id="form5">
+        <input type="text" id="tascatitol">
+        <button type="submit">Submit</button>
+    </form>
+    <ul id="llistaTasca"></ul>
     <script>
         // 21
         let alumnes = [ {nom:"Anna",nota:8},{nom:"Joan",nota: 6}];
@@ -139,7 +156,60 @@
         }
         // 29
         let llibres = [];
+        let llibreTitol = document.querySelector("#llibretitol");
+        let autor = document.querySelector("#autor");
+        let any = document.querySelector("#any");
+        let form4 = document.querySelector("#form4")
+        let divLlibres = document.querySelector("#llibres")
+        form4.addEventListener("submit", function(e){
+            e.preventDefault();
+            if(llibreTitol.value.trim() ==="" || autor.value.trim() === "" || any.value.trim() ===""){
+                alert("omple els camps buits")
+                return;
+            }else{
+                llibres.push({titol: llibreTitol.value, autor: autor.value, any: any.value})
+            }
+            renderitzarLlibres();
+            form4.reset();
+        })
+        function renderitzarLlibres(){
+            let html5 = "";
+            for(let i = 0; i<llibres.length;i++){
+                html5 += `<div class="llibre">
+                    <strong>${llibres[i].titol}</strong> — ${llibres[i].autor} (${llibres[i].any})
+                </div>` 
+            }
+            divLlibres.innerHTML = html5
+        }
+        renderitzarLlibres()
+        // 30
+        let tasques2 = []
+        let tascatitol = document.querySelector("#tascatitol");
+        let form5 = document.querySelector("#form5")
         
+        form5.addEventListener("submit", function(e){
+            e.preventDefault()
+            if(tascatitol.value.trim() === ""){
+                alert("Omple els camps en buit");
+                return;
+            } else{
+                tasques2.push({titol: tascatitol.value, completada: false});
+            };
+            renderitzarTasques();
+            form5.reset()
+        })
+
+        function renderitzarTasques(){
+            let html6 = ""
+            for(let i = 0;i<tasques2.length;i++){
+                if(tasques2[i].completada === false){
+                    html6 += `<li class="pendent">${tasques2[i].titol}</li>`
+                } else {
+                    html6 += `<li class="feta">${tasques2[i].titol}</li>`                    
+                }
+            }
+            document.querySelector("#llistaTasca").innerHTML = html6
+        }
     </script>
 </body>
 </html>
