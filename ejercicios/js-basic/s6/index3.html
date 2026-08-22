@@ -37,7 +37,7 @@
     <hr>
     <form action="" id="form4">
         <input type="text" id="llibretitol">
-        <input type="text" id="autor">
+        <input type="text" id="autor2">
         <input type="number" name="" id="any">
         <button id="submit">Submit</button>
     </form>
@@ -157,17 +157,17 @@
         // 29
         let llibres = [];
         let llibreTitol = document.querySelector("#llibretitol");
-        let autor = document.querySelector("#autor");
+        let autor2 = document.querySelector("#autor");
         let any = document.querySelector("#any");
         let form4 = document.querySelector("#form4")
         let divLlibres = document.querySelector("#llibres")
         form4.addEventListener("submit", function(e){
             e.preventDefault();
-            if(llibreTitol.value.trim() ==="" || autor.value.trim() === "" || any.value.trim() ===""){
+            if(llibreTitol.value.trim() ==="" || autor2.value.trim() === "" || any.value.trim() ===""){
                 alert("omple els camps buits")
                 return;
             }else{
-                llibres.push({titol: llibreTitol.value, autor: autor.value, any: any.value})
+                llibres.push({titol: llibreTitol.value, autor: autor2.value, any: any.value})
             }
             renderitzarLlibres();
             form4.reset();
@@ -176,7 +176,7 @@
             let html5 = "";
             for(let i = 0; i<llibres.length;i++){
                 html5 += `<div class="llibre">
-                    <strong>${llibres[i].titol}</strong> — ${llibres[i].autor} (${llibres[i].any})
+                    <strong>${llibres[i].titol}</strong> — ${llibres[i].autor2} (${llibres[i].any})
                 </div>` 
             }
             divLlibres.innerHTML = html5

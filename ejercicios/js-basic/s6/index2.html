@@ -46,6 +46,7 @@
     </form>
     <button id="newnotice" class="hidden">Nova notícia</button>
     <div id="resultado"></div>
+    <div id="divErrors">asdadadada</div>
     <script>
     // Level 4 Mostrar/amagar formulari flux complet
         // 16
@@ -117,7 +118,7 @@
             };
             resultado.innerHTML = `<div>${html4}</div>`;
         }
-        // 20 - 22 - 23 - 28
+        // 20 - 22 - 23 - 28 - 31
         let noticia = []
         let noticies = document.querySelector("#noticies")
         let titolt = document.querySelector("#titol")
@@ -154,6 +155,8 @@
         }
 
         document.querySelector("#newnotice").addEventListener("click", () => {
+            document.querySelector("#divErrors").innerHTML = ""
+            noticies.reset()
             if(noticies.classList.contains("hidden")){
                 noticies.classList.remove("hidden")
             } else {
