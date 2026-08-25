@@ -89,15 +89,15 @@
         function renderitzarIngressos(){
             let html2 = "";
             for(let i = 0;i<ingressos.length;i++){
-                html2 += `<li>Concepte: ${preu.value}</li>`
+                html2 += `<li>Concepte: ${ingressos[i].ingress}</li>`
             }
             listaingressos.innerHTML = html2
         }
 
         function renderitzarDespeses(){
             let html3 = "";
-            for(let i = 0;i<ingressos.length;i++){
-                html3 += `<li>Concepte: ${preu.value}</li>`
+            for(let i = 0;i<despeses.length;i++){
+                html3 += `<li>Concepte: ${despeses[i].despeses}</li>`
             }
             llistaDespeses.innerHTML = html3
         }
