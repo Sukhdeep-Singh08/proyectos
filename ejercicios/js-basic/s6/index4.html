@@ -6,14 +6,28 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" id="form1">
+    <form  id="form1">
         <input type="text" id="noticia">
-        <input type="date" name="" id="data">
+        <input type="date" id="data">
         <input type="text" id="autor">
         <input type="text" id="text">
         <button type="submit">Submit</button>
     </form>
     <div id="noticias"></div>
+    <hr> 
+    <form id="formtwo">
+        <select  id="money">
+            <option value="">Selecciona</option>
+            <option value="Ingress">Ingress</option>
+            <option value="Despesa">Despesa</option>
+        </select>
+        <input type="number" id="preu">
+        <button type="submit">Submit</button>
+    </form>
+    <div id="llista">
+        <ul id="llistaIngressos"></ul>
+        <ul id="llistaDespeses"></ul>
+    </div>
     <script>
         // 32
         let noticias = []
@@ -46,6 +60,53 @@
             };
             contenedorNoticias.innerHTML = html;
         }
+    // 33
+        let ingressos = [];
+        let despeses = [];
+        let form2 = document.querySelector("#formtwo");
+        let selectmoney = document.querySelector("#money")
+        let listaingressos = document.querySelector("#llistaIngressos")
+        let llistaDespeses = document.querySelector("#llistaDespeses")
+        let preu = document.querySelector("#preu")
+        form2.addEventListener("submit", function(e){e.preventDefault();
+            if(selectmoney.value == "" || preu.value.trim() === ""){
+                document.querySelector("#llista").textContent="Omple els camps buits";
+                return
+            } else if(selectmoney.value == "Ingress"){
+                ingressos.push({ingress: preu.value})
+            } else{
+                despeses.push({despeses: preu.value})
+            }
+
+            if(ingressos.length != 0){
+                renderitzarIngressos()
+            }
+            if(despeses.length != 0){
+                renderitzarDespeses()
+            }
+        })
+
+        function renderitzarIngressos(){
+            let html2 = "";
+            for(let i = 0;i<ingressos.length;i++){
+                html2 += `<li>Concepte: ${preu.value}</li>`
+            }
+            listaingressos.innerHTML = html2
+        }
+
+        function renderitzarDespeses(){
+            let html3 = "";
+            for(let i = 0;i<ingressos.length;i++){
+                html3 += `<li>Concepte: ${preu.value}</li>`
+            }
+            llistaDespeses.innerHTML = html3
+        }
+        renderitzarIngressos()
+        renderitzarDespeses()
+    // 34
+    // 38
+    // 39
+    // 40
     </script>
 </body>
 </html>
